@@ -1,6 +1,6 @@
 # X AND O GAME
 
-X and O Game is a Pygame (Python) 3 by 3 tic-tac-toe game that can either be two player or against the coumpter.
+X and O Game is a Pygame (Python) 3 by 3 tic-tac-toe game that can either be two player or against the computer.
 
 ## Installation
 Download [Python](https://www.python.org/downloads/) now.
