@@ -19,25 +19,25 @@ pg.font.init()
 pg.mixer.init()
 pg.display.set_caption("X and O Online")
 HEAD = pg.font.SysFont("bold", 25)
-HEADER= pg.font.Font("X_and_O_Online/Font/umberto/umberto.ttf", 20)
-WINNER_FONT = pg.font.Font("X_and_O_Online/Font/clickuper/Clickuper.ttf", 40)
-WINNER_FONT2 = pg.font.Font("X_and_O_Online/Font/clickuper/Clickuper.ttf", 20)
-FIRSTFONT = pg.font.Font("X_and_O_Online/Font/clickuper/Clickuper.ttf", 15)
-PLAYFONT = pg.font.Font("X_and_O_Online/Font/umberto/Umberto.ttf", 105)
+HEADER= pg.font.Font("Font/umberto/umberto.ttf", 20)
+WINNER_FONT = pg.font.Font("Font/clickuper/Clickuper.ttf", 40)
+WINNER_FONT2 = pg.font.Font("Font/clickuper/Clickuper.ttf", 20)
+FIRSTFONT = pg.font.Font("Font/clickuper/Clickuper.ttf", 15)
+PLAYFONT = pg.font.Font("Font/umberto/Umberto.ttf", 105)
 FONT1 = pg.font.SysFont("consolas", 15)
-INTRO_SOUND = pg.mixer.Sound(os.path.join("X_and_O_Online/Audio", "intro.mp3"))
-WIN_SOUND = pg.mixer.Sound(os.path.join("X_and_O_Online/Audio", "win.mp3"))
-KEY_SOUND = pg.mixer.Sound(os.path.join("X_and_O_Online/Audio", "keyboard.mp3"))
-DRAW_SOUND = pg.mixer.Sound(os.path.join("X_and_O_Online/Audio", "draw.mp3"))
-CLICK_SOUND = pg.mixer.Sound(os.path.join("X_and_O_Online/Audio", "click.mp3"))
+INTRO_SOUND = pg.mixer.Sound(os.path.join("Audio", "intro.mp3"))
+WIN_SOUND = pg.mixer.Sound(os.path.join("Audio", "win.mp3"))
+KEY_SOUND = pg.mixer.Sound(os.path.join("Audio", "keyboard.mp3"))
+DRAW_SOUND = pg.mixer.Sound(os.path.join("Audio", "draw.mp3"))
+CLICK_SOUND = pg.mixer.Sound(os.path.join("Audio", "click.mp3"))
 boxList1_3 = [" "," "," "]
 boxList4_6 = [" "," "," "]
 boxList7_9 = [" "," "," "]
 the_list = [x for x in range(1,10)]
-initiating_window = pg.image.load("X_and_O_Online/Assets/X and O Online.png")
-upward_bar = pg.image.load("X_and_O_Online/Assets/yellow_bg.jpg")
-x_img = pg.image.load("X_and_O_Online/Assets/xicon.jpg")
-y_img = pg.image.load("X_and_O_Online/Assets/oicon.jpg")
+initiating_window = pg.image.load("Assets/X and O Online.png")
+upward_bar = pg.image.load("Assets/yellow_bg.jpg")
+x_img = pg.image.load("Assets/xicon.jpg")
+y_img = pg.image.load("Assets/oicon.jpg")
 initiating_window = pg.transform.scale(initiating_window, (width, height))
 upward_bar = pg.transform.scale(upward_bar, (width, 30))
 screen = pg.display.set_mode((width, height), 0, 32)
@@ -125,13 +125,13 @@ def history():
             if event.type == pg.MOUSEBUTTONDOWN:
                     if back_rect.collidepoint(event.pos):
                         cancel_highscore = True
-        with open('X_and_O_Online/Scores/xando.txt', 'r') as file:
+        with open('Scores/xando.txt', 'r') as file:
             data = file.read()
         data = data.split('][')
         new_data = ','.join(data)
-        with open('X_and_O_Online/Scores/xando.txt', 'w') as file:
+        with open('Scores/xando.txt', 'w') as file:
             file.write(new_data)
-        with open('X_and_O_Online/Scores/xando.txt', 'r') as file:
+        with open('Scores/xando.txt', 'r') as file:
             try:
                 all = json.load(file)
             except (FileNotFoundError, json.JSONDecodeError):  # Handle errors gracefully
@@ -840,17 +840,17 @@ def main():
                 }
                 high_score.append(game_info)
                 
-                with open('X_and_O_Online/Scores/xando.txt', 'a') as file:
+                with open('Scores/xando.txt', 'a') as file:
                     json.dump(high_score, file, indent=4)
                     file.close()
-                delete =os.path.join(f"{os.getcwd()}", "X_and_O_Online/playeraudio/")
+                delete =os.path.join(f"{os.getcwd()}", "playeraudio/")
                 try:
                     for fname in os.listdir(delete):
                         if fname.endswith('.mp3'):
                             os.remove(fname)
                 except:
                     print('None')
-                path =os.path.join(f"{os.getcwd()}", "X_and_O_Online/playeraudio/speech.mp3")
+                path =os.path.join(f"{os.getcwd()}", "playeraudio/speech.mp3")
                 try:
                     if comp:
                         myobj = gTTS(text=f'{username} won {x_score} times and Computer won {o_score} times', lang='en')
@@ -860,7 +860,7 @@ def main():
                 except:
                     pass
                 try:
-                    WINNER_SOUND = pg.mixer.Sound(os.path.join("X_and_O_Online/playeraudio", "speech.mp3"))
+                    WINNER_SOUND = pg.mixer.Sound(os.path.join("playeraudio", "speech.mp3"))
                     WINNER_SOUND.play()
                     length = WINNER_SOUND.get_length()
                     pg.display.update()
