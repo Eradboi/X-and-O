@@ -15,7 +15,7 @@ Clone the repository, open the main directory and run the main.py file to enjoy 
 git clone https://github.com/Eradboi/X-and-O
 #then enter the directory containing the main.py file
 
-cd X-and-O-Online
+cd X_and_O_Online
 # run the game file
 python main.py
 #OR
