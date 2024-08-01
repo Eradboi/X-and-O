@@ -13,7 +13,10 @@ pip install pygame
 Clone the repository, open the main directory and run the main.py file to enjoy the X and O Game.
 ```bash
 git clone https://github.com/Eradboi/X-and-O
-#then
+#then enter the directory containing the main.py file
+
+cd X-and-O-Online
+# run the game file
 python main.py
 #OR
 py main.py
